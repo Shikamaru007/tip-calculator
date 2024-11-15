@@ -7,6 +7,62 @@
   <title>Tip Calculator</title>
 </head>
 <body>
+
+    <main class="main-body">
+        <div class="logo"><img src="images/logo.svg" alt="logo icon"></div>
+        <section class="container">
+
+           <div class="left">
+            <div class="input-container">
+                <label for="bill">Bill</label>
+                <div class="bill-input-wrapper">
+                    <input type="text" id="bill" class="input" oninput="formatBill(this)" placeholder="0">
+                    <img src="images/icon-dollar.svg" alt="dollar" class="dollar">
+                </div>
+            </div>
+            <div class="tip-container">
+                <label>Select Tip %</label>
+                <div class="tip-buttons">
+                    <button class="tip-btn" id="tipBtn" onclick="selectTip(5)">5%</button>
+                    <button class="tip-btn" id="tipBtn" onclick="selectTip(10)">10%</button>
+                    <button class="tip-btn" id="tipBtn" onclick="selectTip(15)">15%</button>
+                    <button class="tip-btn" id="tipBtn" onclick="selectTip(25)">25%</button>
+                    <button class="tip-btn" id="tipBtn" onclick="selectTip(50)">50%</button>
+                    <input type="text" oninput="customTipPercentage(this)" class="custom-tip" placeholder="Custom">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="label-wrapper">
+                    <label for="people">Number of People</label>
+                    <span class="error-msg">Can't be zero</span>
+                </div>
+                <div class="people-input-wrapper">
+                    <input type="text" id="people" class="input" oninput="selectPeople(this)" placeholder="1">
+                    <img src="images/icon-person.svg" alt="person" class="person">
+                </div>
+            </div>
+           </div>
+
+           <div class="right">
+                <div class="tip-amount-wrapper">
+                    <div class="details">
+                        <p>Tip Amount</p>
+                        <span>/ person</span>
+                    </div>
+                    <div class="figure" id="tipAmount">$0.00</div>
+                </div>
+                <div class="total-amount-wrapper">
+                    <div class="details">
+                        <p>Total Amount</p>
+                        <span>/ person</span>
+                    </div>
+                    <div class="figure" id="totalAmount">$0.00</div>
+                </div>
+                <button class="reset-btn" id="resetBtn" disabled>RESET</button>
+           </div>
+
+        </section>
+    </main>
   
 </body>
 </html>
