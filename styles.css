@@ -173,6 +173,7 @@ label{
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
+    opacity: 1;
 }
 .reset-btn:hover{
     background-color: var(--Light-grayish-cyan);
@@ -204,11 +205,19 @@ label{
     border: 2px solid hsl(0, 100%, 63%);
 }
 
+@media screen and (min-width:375px){
+    .figure{
+        font-size: 2.8rem;
+    }
+}
 
 
 @media screen and (min-width:513px){
     .tip-buttons{
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .figure{
+        font-size: 3rem;
     }
 }
 
@@ -222,5 +231,38 @@ label{
     }
     .left{
         gap: 3rem;
+    }
+}
+
+
+@media screen and (min-width:1024px){
+    .main-body{
+        height: 100vh;
+        justify-content: center;
+    }
+    .logo{
+        margin: 0;
+        margin-bottom: 5rem;
+    }
+    .container{
+        width: 80%;
+        max-width: 68.26rem;
+        flex-direction: row;
+        border-radius: 20px;
+        padding: 2.2rem;
+    }
+    .left{
+        flex: 1;
+        gap: 2.5rem;
+    }
+    .right{
+        flex: .9;
+    }
+    .tip-buttons{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    .reset-btn{
+        margin-top: auto;
     }
 }

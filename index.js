@@ -6,16 +6,31 @@ let numberOfPeople = 0;
 
 
 function formatBill(billInput){
-    const onlyNumber = billInput.value.replace(/\D/g, "");
-    const value = onlyNumber.replace(/,/g, '');
-    if(!isNaN(value) && value != ''){
-        billAmount = parseFloat(value);
-        billInput.value = Number(value).toLocaleString();
-        calculateTip();
-    }else{
-        billAmount = 0;
-        billInput.value = '';
+    let value = billInput.value;
+    value = value.replace(/[^\d.]/g, "");
+    let parts = value.split(".");
+
+    if(parts.length > 2){
+        value = parts[0] + "." + parts[1];
     }
+    if(parts.length === 2 && parts[1].length > 2){
+        parts[1] = parts[1].substring(0, 2);
+    }
+    if (parts[0].length > 0) {
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    billInput.value = parts.join('.');
+
+    const numericValue = parseFloat(parts.join('.').replace(/,/g, ''));
+    if (!isNaN(numericValue)) {
+        billAmount = numericValue;
+        console.log(billAmount)
+    } else {
+        billAmount = 0;
+    }
+
+    calculateTip();
 }
 
 function selectTip(percentage){
@@ -72,6 +87,28 @@ function calculateTip(){
         tipAmountDisplay.innerText = "$0.00";
         totalAmountDisplay.innerText ="$0.00";
     }
+}
+
+function resetPage(){
+    billAmount = 0;
+    selectedTipPercentage = 0;
+    numberOfPeople = 0;
+
+    document.getElementById("bill").value = "";
+    document.getElementById("people").value = "";
+    const buttons = document.querySelectorAll("#tipBtn");
+
+    buttons.forEach(button => {
+        button.classList.remove("active");
+    })
+    const customInput = document.querySelector(".custom-tip");
+    customInput.value = "";
+
+    
+
+    tipAmountDisplay.textContent = "$0.00";
+    totalAmountDisplay.textContent = "$0.00";
+
 }
 
 calculateTip()
