@@ -36,7 +36,7 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--White);
     padding: 2.5rem;
     gap: 3rem;
     border-radius: 20px 20px 0 0;
@@ -59,12 +59,12 @@ body{
 }
 .tip-buttons{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
 }
 .tip-btn{       
     border: none;
-    padding: .5rem;
+    padding: .8rem;
     font-size: 2rem;
     font-weight: 700;
     color: var(--White);
@@ -72,13 +72,19 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
+.tip-btn.active{
+    background-color: var(--Strong-cyan);
+}
 .tip-btn:hover{
     background-color: var(--Light-grayish-cyan);
     color: var(--Very-dark-cyan);
 }
+.tip-btn:hover:active{
+    background-color: hsl(185, 41%, 54%);
+}
 .custom-tip{
     background-color: var(--Very-light-grayish-cyan);
-    padding: .5rem;
+    padding: .8rem;
     font-size: 2rem;
     font-weight: 700;
     border-radius: 5px;
@@ -126,7 +132,7 @@ label{
     background-color: var(--Very-dark-cyan);
     color: white;
     gap: 2.5rem;
-    padding: 2rem;
+    padding: 3rem 2rem;
     border-radius: 15px;
 }
 .tip-amount-wrapper,
@@ -196,4 +202,25 @@ label{
 }
 .people-input-wrapper.error .input{
     border: 2px solid hsl(0, 100%, 63%);
+}
+
+
+
+@media screen and (min-width:513px){
+    .tip-buttons{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+
+@media screen and (min-width:713px){
+    .container{
+        padding: 3rem;
+        width: 713px;
+        margin-inline: auto;
+        gap: 2.5rem;
+    }
+    .left{
+        gap: 3rem;
+    }
 }

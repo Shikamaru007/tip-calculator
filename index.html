@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="index.js" defer></script>
   <link rel="stylesheet" href="styles.css">
   <title>Tip Calculator</title>
 </head>
@@ -16,7 +17,7 @@
             <div class="input-container">
                 <label for="bill">Bill</label>
                 <div class="bill-input-wrapper">
-                    <input type="text" id="bill" class="input" oninput="formatBill(this)" placeholder="0">
+                    <input type="text" id="bill" class="input" oninput="formatBill(this)" placeholder="0" autocomplete="off">
                     <img src="images/icon-dollar.svg" alt="dollar" class="dollar">
                 </div>
             </div>
@@ -49,14 +50,14 @@
                         <p>Tip Amount</p>
                         <span>/ person</span>
                     </div>
-                    <div class="figure" id="tipAmount">$0.00</div>
+                    <div class="figure" id="tipAmount"></div>
                 </div>
                 <div class="total-amount-wrapper">
                     <div class="details">
-                        <p>Total Amount</p>
+                        <p>Total</p>
                         <span>/ person</span>
                     </div>
-                    <div class="figure" id="totalAmount">$0.00</div>
+                    <div class="figure" id="totalAmount"></div>
                 </div>
                 <button class="reset-btn" id="resetBtn" disabled>RESET</button>
            </div>
